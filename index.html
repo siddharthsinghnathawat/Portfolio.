@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <style>
+    :root {
+      --bg-color: #0d0d0d;
+      --text-color: #f2f2f2;
+      --accent-color: #ff6a00;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header#hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    #particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background: #000;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content h1 span {
+      color: var(--accent-color);
+    }
+
+    .typing-text {
+      font-size: 1.5rem;
+      height: 30px;
+      margin: 1rem 0;
+      color: var(--accent-color);
+    }
+
+    .btn {
+      background: var(--accent-color);
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      margin: 0.5rem;
+      border: none;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #e65c00;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--accent-color);
+    }
+
+    section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .skills-container {
+      max-width: 600px;
+      margin: auto;
+      text-align: left;
+    }
+
+    .skill {
+      margin-bottom: 1rem;
+    }
+
+    .skill span {
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .bar {
+      background: #222;
+      height: 10px;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .bar::after {
+      content: '';
+      position: absolute;
+      height: 100%;
+      background: var(--accent-color);
+      border-radius: 5px;
+      left: 0;
+    }
+
+    .html::after { width: 95%; }
+    .css::after { width: 90%; }
+    .js::after { width: 95%; }
+    .react::after { width: 90%; }
+    .cpp::after { width: 90%; }
+     .java::after {width:100% }
+     .python::after{width:70%}
+     .ps::after{width:90% }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(255, 106, 0, 0.3);
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, textarea {
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: none;
+      background: #222;
+      color: #fff;
+    }
+
+    button[type="submit"] {
+      background: var(--accent-color);
+      color: white;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #111;
+      padding: 2rem;
+      text-align: center;
+      color: #777;
+    }
+
+    .theme-toggle {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .social-icons {
+      margin-top: 1rem;
+    }
+
+    .social-icons a {
+      color: var(--text-color);
+      margin: 0 10px;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: var(--accent-color);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Hero Section -->
+  <header id="hero">
+    <canvas id="particles"></canvas>
+    <div class="hero-content">
+      <h1>Hello, I'm <span>Siddharth Singh</span></h1>
+      <h2 class="typing-text"></h2>
+      <a href="#projects" class="btn">View My Work</a>
+      <a href="https://wa.me/918058739770?text=Hi%20Siddharth%2C%20I%20would%20like%20to%20hire%20you%20for%20a%20project." class="btn btn-outline" target="_blank">Hire Me</a>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>Creative and detail-oriented web developer with expertise in building responsive and animated websites.</p>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" data-aos="fade-up">
+    <h2>Skills</h2>
+    <div class="skills-container">
+      <div class="skill"><span>HTML</span><div class="bar html"></div></div>
+      <div class="skill"><span>CSS</span><div class="bar css"></div></div>
+      <div class="skill"><span>JavaScript</span><div class="bar js"></div></div>
+      <div class="skill"><span>React</span><div class="bar react"></div></div>
+      <div class="skill"><span>Java</span><div class="bar java"></div></div>
+      <div class="skill"><span>C++</span><div class="bar cpp"></div></div>
+      <div class="skill"><span>Python</span><div class="bar python"></div></div>
+      <div class="skill"><span>Problem Solving</span><div class="bar ps"></div></div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" data-aos="fade-up">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card" data-tilt>
+        <h3> INTERVIEW PREPARATION ASSISTANT</h3>
+        <p>Built a web-based application where users can practice mock interviews.</p>
+      </div>
+      <div class="project-card" data-tilt>
+        <h3> STUDENT PORTAL MANAGEMENT SYSTEM</h3>
+        <p> A console-based or GUI-based application that allows students to register, log in, view results,
+            manage profiles, and check notifications.</p>
+      </div>
+      <div class="project-card" data-tilt>
+        <h3>BASIC CHAT APPLICATION</h3>
+        <p> A simple peer-to-peer chat application using TCP/IP sockets that runs on local networks.</p>
+      </div>
+      <div class="project-card" data-tilt>
+        <h3>E-COMMERCE WEBSITE</h3>
+        <p> An online platform for buying/selling products with features like product listings, cart, checkout, and payments.</p>
+      </div>
+      <div class="project-card" data-tilt>
+        <h3>DINE-IN-DIRECT</h3>
+        <p>A modern web application with animations and API integration.</p>
+      </div>
+      <div class="project-card" data-tilt>
+        <h3>WEATHER DASHBOARD</h3>
+        <p>Interactive dashboard with real-time data visualization.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" data-aos="fade-up">
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Siddharth Portfolio. All Rights Reserved.</p>
+    <div class="social-icons">
+        <a href="https://in.linkedin.com/in/siddharth-singh-nathawat-b51214291?trk=public_post_feed-actor-name" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/siddharthsinghnathawat/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://discord.com/users/yourid" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+      </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    // Typing Text Animation
+    const roles = ['Web Developer', 'UI/UX Designer', 'JavaScript Expert','Software Engineer','Java Developer'];
+    let index = 0, charIndex = 0, typing = true;
+    const typingText = document.querySelector('.typing-text');
+
+    function typeLoop() {
+      const role = roles[index];
+      if (typing) {
+        typingText.textContent = role.substring(0, charIndex++);
+        if (charIndex > role.length) typing = false;
+      } else {
+        typingText.textContent = role.substring(0, charIndex--);
+        if (charIndex === 0) {
+          typing = true;
+          index = (index + 1) % roles.length;
+        }
+      }
+      setTimeout(typeLoop, 150);
+    }
+    typeLoop();
+
+    
+  </script>
+</body>
+
+</html>
